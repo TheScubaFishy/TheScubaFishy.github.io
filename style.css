@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
     background-color: #323232;
@@ -22,7 +23,7 @@ h2 {
 
 p {
     color: #FFFFFF;
-    font-family: "Raleway";
+    font-family: "Poppins";
 }
 
 pre {
@@ -53,8 +54,9 @@ button:hover,
 
 /* Global Tab (Top Bar) */
 .globaltab {
-    display: flex;
-    position: relative;
+    display: grid;
+    grid-template-areas:
+        'version break nav';
     overflow: hidden;
 }
 
@@ -63,10 +65,20 @@ button:hover,
     border: 4px solid #FFFFFF;
     cursor: pointer;
     transition: 0.3s;
+    float: right;
 }
 
-.globaltab p {
+#version {
+    grid-area: version;
     font-family: monospace;
+}
+
+#break {
+    grid-area: break;
+}
+
+#nav {
+    grid-area: nav;
 }
 
 /* Tab Group (Bottom Section) */
@@ -115,6 +127,24 @@ button:hover,
     color: #5555FF;
 }
 
+#temple {
+    color: #00AA00
+}
+
+#god {
+    color: #FF5555;
+}
+
+#title {
+    color: #FF5555;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#version {
+    color: #55FF55;
+}
+
 .tabcontent {
     grid-area: tabcontent;
     overflow: clip;
@@ -148,7 +178,7 @@ button:hover,
 }
 
 /* Settings Tab */
-.achievements {
+.right_window {
     grid-area: achievements;
     overflow-y: scroll;
     overflow-x: clip;
@@ -158,14 +188,14 @@ button:hover,
     height: 550px;
 }
 
-.misc {
+.center_main {
     grid-area: misc;
     overflow: clip;
     width: 50%;
     height: 550px;
 }
 
-.credits {
+.left_window {
     grid-area: credits;
     overflow-y: scroll;
     overflow-x: clip;

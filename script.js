@@ -145,7 +145,7 @@ function puddleInteraction() {
 }
 
 // Abyss Tab
-//Abyss tab - Functions
+// Abyss tab - Functions
 function abyssUnlock() {
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
@@ -195,19 +195,6 @@ function abyssInteraction() {
     }
 }
 
-function templeUnlock() {
-    if (heavenly_lobsters >= 4) {
-        heavenly_lobsters -= 4
-        document.getElementById("temple_button").hidden = true
-        update()
-    } else {
-        document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
-                                                        All I require are 5 Counterfeit Crabs.<br>
-                                                        With those, I can forge a Heavenly Lobster.<br>
-                                                        However, you need 4 to travel to the LOBSTER TEMPLE.<br>`
-    }
-}
-
 function abyssMagic1() {
     if (crabs >= 5) {
         crabs -= 5
@@ -232,6 +219,48 @@ function abyssMagic2() {
         }
     } else {
         document.getElementById("whale_text").innerHTML = "No production to remove!<br>"
+    }
+}
+
+// Temple Tab
+// Temple Tab - Functions
+function templeUnlock() {
+    if (heavenly_lobsters >= 4) {
+        heavenly_lobsters -= 4
+        document.getElementById("temple_button").hidden = true
+        update()
+    } else {
+        document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
+                                                        All I require are 5 Counterfeit Crabs.<br>
+                                                        With those, I can forge a Heavenly Lobster.<br>
+                                                        However, you need 4 to travel to the LOBSTER TEMPLE.<br>`
+    }
+}
+
+function productionUpgrade() {
+    if (heavenly_lobsters >= 5) {
+        heavenly_lobsters -= 5
+        production += 0.25
+    }
+}
+
+function magicUpgrade() {
+    if (heavenly_lobsters >= 10) {
+        heavenly_lobsters -= 10
+        newproduction = production * 2
+        oldproduction = production
+        production = newproduction
+        setTimeout(magicUpgrade, 300000)
+        production = oldproduction
+    }
+}
+
+function ascendUpgrade() {
+    if (heavenly_lobsters >= 100) {
+        heavenly_lobsters -= 100
+        document.getElementById("ascend_upgrade").disabled = true
+        document.getElementById("Heaven").click()
+        // god_dialogue()
     }
 }
 
