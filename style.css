@@ -29,7 +29,7 @@ pre {
     color: #FFFFFF;
     font-family: monospace, monospace;
     font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 button {
@@ -97,15 +97,22 @@ button:hover,
 
 #lobstericon {
     color: #FF5555;
-    white-space: pre-line;
 }
 
 #crabicon {
-    color: #FFA555;
+    color: #FFAA00;
+}
+
+#heavenlyicon {
+    color: #FFFF55;
 }
 
 #seahorse {
     color: #FFFF55
+}
+
+#whale {
+    color: #5555FF;
 }
 
 .tabcontent {

@@ -1,9 +1,11 @@
 // Tasman Peterson - JavaScript Test - 1/26/24
 // Defining Variables
+let production = 1
 let lobsters = 0
 let eaten = 0
 let thrown = 0
 let crabs = 0
+let heavenly_lobsters = 0
 
 // Functions - Main Script
 function update() {
@@ -11,8 +13,10 @@ function update() {
     document.getElementById("lobstercount").innerHTML = ("Lobsters: " + lobsters);
     document.getElementById("lobstereaten").innerHTML = ("Lobsters Eaten: " + eaten);
     document.getElementById("lobsterthrown").innerHTML = ("Lobsters Thrown: " + thrown);
-    document.getElementById("globalcrab").innerHTML = (text = "Counterfeit Crabs: " + crabs)
-    document.getElementById("crabcount").innerHTML = (text = "Counterfeit Crabs: " + crabs)
+    document.getElementById("globalcrab").innerHTML = ("Counterfeit Crabs: " + crabs)
+    document.getElementById("crabcount").innerHTML = ("Counterfeit Crabs: " + crabs)
+    document.getElementById("heavenlycount").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
+    document.getElementById("globalheavenly").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
 }
 
 // Tabs for Settings, Game, Etc.
@@ -50,7 +54,7 @@ document.getElementById("Lobster").click();
 // Lobster Tab
 // Functions - Lobster Tab
 function getLobster() {
-    lobsters = lobsters + 1
+    lobsters = lobsters + production
     update()
 }
 
@@ -145,6 +149,90 @@ function puddleInteraction() {
 function abyssUnlock() {
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
+}
+
+abyss_click = 0
+function abyssInteraction() {
+    const whale_chat = [
+        `Oh, hey, what's up my dude?<br>
+        How's James been doing?<br>
+        Been a while since I've seen him.<br>`
+        ,
+        `O, BE WARNED, MERE MORTAL. FOR I,<br>
+        I POSSESS POWERS GREATER THAN YOU KNOW.<br>
+        ONE SIMPLE THOUGHT WILL ANNIHALATE YOU.<br>
+        THEY DON'T CALL ME THE SOULWEAVER FOR NOTHING!<br>`
+        ,
+        `Nah, don't worry. It's chill.<br>
+        So, what can I do for you?<br>`
+        ,
+        `Oh, I can get you so, so much Lobster.<br>
+        All I require are 5 Counterfeit Crabs.<br>
+        With those, I can forge a Heavenly Lobster.<br>
+        However, you need 4 to travel to the LOBSTER TEMPLE.`
+    ]
+    const whale_response_chat = [
+        "Wait, you're tiny!"
+        ,
+        "Whoops, my bad cuh."
+        ,
+        "I desire Lobster."
+        ,
+        `Hey, hope you're having a nice day.
+        This is a placeholder for an error message.
+        If you see this, contact ScubaFishy with "whale_response_bug"`
+    ]
+    abyss_click += 1
+    document.getElementById("whale_text").innerHTML = (whale_chat[abyss_click - 1])
+    document.getElementById("abyss_response").innerHTML = (whale_response_chat[abyss_click - 1])
+    if (abyss_click == 1) {
+        document.getElementById("whale").hidden = false
+    }
+    if (abyss_click == 4) {
+        document.getElementById("abyss_response").hidden = true
+        document.getElementById("abyss_magic_1").hidden = false
+        document.getElementById("temple_button").hidden = false
+    }
+}
+
+function templeUnlock() {
+    if (heavenly_lobsters >= 4) {
+        heavenly_lobsters -= 4
+        document.getElementById("temple_button").hidden = true
+        update()
+    } else {
+        document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
+                                                        All I require are 5 Counterfeit Crabs.<br>
+                                                        With those, I can forge a Heavenly Lobster.<br>
+                                                        However, you need 4 to travel to the LOBSTER TEMPLE.<br>`
+    }
+}
+
+function abyssMagic1() {
+    if (crabs >= 5) {
+        crabs -= 5
+        heavenly_lobsters += 1
+        document.getElementById("heavenlycount").hidden = false
+        document.getElementById("heavenlyicon").hidden = false
+        document.getElementById("globalheavenly").hidden = false
+        update()
+    }
+}
+
+function abyssMagic2() {
+    if (production > 1) {
+        lobsters -= 1000
+        fail_chance = Math.floor(Math.random() * 4) + 1
+        if (fail_chance == 4) {
+            production -= 1
+            document.getElementById("whale_text").innerHTML = "Backfire! Lobster production -1!<br>"
+        } else {
+            document.getElementById("whale_text").innerHTML = "Success! Summoned 5 minutes' worth of production!<br>"
+            lobsters += 5 * (production * 60)
+        }
+    } else {
+        document.getElementById("whale_text").innerHTML = "No production to remove!<br>"
+    }
 }
 
 // Main loop of the game; important stuff like lobster gen goes here

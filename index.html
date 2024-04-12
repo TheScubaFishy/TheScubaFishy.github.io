@@ -23,29 +23,33 @@
     <div id="Game" class="tabGroup">
       <div class="character">
         <pre id="lobstericon">
-           \     /
-           ,\   /.
-          /( \ / )\
-       \  \\ .V. //  /
-      . \  \-\"/-/  / ,
-       \ '==|)"(|==' /
-       \'===\_!_/==='/
-        ''===\_/===''
-         :===\_/===;
-          \  \_/  /
-             \_/
-           //( )\\
-          (_(_7_)_)
+  _          _         _            
+ | |    ___ | |__  ___| |_ ___ _ __ 
+ | |   / _ \| '_ \/ __| __/ _ \ '__|
+ | |__| (_) | |_) \__ \ ||  __/ |   
+ |_____\___/|_.__/|___/\__\___|_|   
           </pre>
         <p id="globallobster">Lobsters: 0</p>
         <pre id="crabicon" hidden="true">
-                 _    ___ 
-   ___ _ __ __ _| |__|__ \
-  / __| '__/ _` | '_ \ / /
- | (__| | | (_| | |_) |_| 
-  \___|_|  \__,_|_.__/(_) 
+   ____           _    ___ 
+  / ___|_ __ __ _| |__|__ \
+ | |   | '__/ _` | '_ \ / /
+ | |___| | | (_| | |_) |_| 
+  \____|_|  \__,_|_.__/(_) 
         </pre>
         <p id="globalcrab" hidden="true">Counterfeit Crabs: 0</p>
+        <pre id="heavenlyicon" hidden="true">
+  _   _                             
+ | | | | ___  __ ___   _____ _ __   
+ | |_| |/ _ \/ _` \ \ / / _ \ '_ \  
+ |  _  |  __/ (_| |\ V /  __/ | | | 
+ |_| |_|\___|\__,_| \_/_\___|_| |_| 
+ | |    ___ | |__  ___| |_ ___ _ __ 
+ | |   / _ \| '_ \/ __| __/ _ \ '__|
+ | |__| (_) | |_) \__ \ ||  __/ |   
+ |_____\___/|_.__/|___/\__\___|_|   
+        </pre>
+        <p id="globalheavenly" hidden="true">Heavenly Lobsters: 0</p>
       </div>
       <div id="lobsterTab" class="tabcontent">
         <p id="lobstercount">Lobsters: 0</p>
@@ -82,12 +86,33 @@
         <button type="button" id="abyss_button" onclick="abyssUnlock()" hidden="true">ENTER THE ABYSS</button><br>
       </div>
       <div id="abyssTab" class="tabcontent">
+        <pre id="whale" hidden="true">
+__v_
+  (____\/{
+        </pre>
+        <p id="whale_text">
+          HOW DARE YOU ENTER THE ABYSS.<br>
+          I AM THE GUARDIAN OF ALL THAT IS SACRED.<br>
+          STATE YOUR PURPOSE, AND PREPARE TO BE...<br>
+          ANNIHALATED BY THE SOULWEAVER!!!!<br>
+        </p>
+        <p id="heavenlycount">Heavenly Lobsters: 0</p>
+        <button id="abyss_response" onclick="abyssInteraction()">James sent me!</button><br>
+        <button id="abyss_magic_1" onclick="abyssMagic1()" hidden="true">Forge a Heavenly Lobster. (5 Counterfeit
+          Crabs)</button><br>
+        <button id="abyss_magic_2" onclick="abyssMagic2()" hidden="true">Summon 5 minutes' worth of production (1,000
+          Lobsters)<br>
+          Backfire: permanent production multiplier -1 (Backfire chance: 25%)</button><br>
+        <button id="temple_button" onclick="templeUnlock()" hidden="true">Travel to the Lobster Temple</button>
+      </div>
+      <div id="templeTab" class="tabcontent">
 
       </div>
       <div class="tab">
         <button id="Lobster" class="tablinks" onclick="openTab(event, 'lobsterTab')">Lobsters</button><br>
         <button id="Puddle" class="tablinks" onclick="openTab(event, 'puddleTab')" hidden="true">Puddle</button><br>
         <button id="Abyss" class="tablinks" onclick="openTab(event, 'abyssTab')" hidden="true">Abyss</button><br>
+        <button id="Temple" class="tablinks" onclick="openTab(event, 'templeTab')" hidden="true">Temple</button>
       </div>
     </div>
     <div id="Settings" class="tabGroup">
