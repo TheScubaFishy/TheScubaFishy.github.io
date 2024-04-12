@@ -127,6 +127,7 @@ function puddleInteraction() {
         crabs += 5
         document.getElementById("crabcount").hidden = false
         document.getElementById("globalcrab").hidden = false
+        document.getElementById("crabicon").hidden = false
         document.getElementById("abyss_button").hidden = false
         update()
     }
