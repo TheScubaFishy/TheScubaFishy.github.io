@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Tasman Peterson" />
+  <meta name="description"
+    content="Lobster Souls: Shellborne Suffering is the game of a lifetime! Try and get as many lobsters as you can!" />
+  <title>LS: Shellborne Suffering</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="content">
+    <h2>Lobster Souls: Shellborne Suffering</h2>
+    <div class="globaltab">
+      <p>VERSION: BETA 1.0 - 4/10/24</p>
+      <hr>
+      <button id="gametab" class="globallinks" onclick="openGlobal(event, 'Game')">Game</button>
+      <button id="settingstab" class="globallinks" onclick="openGlobal(event, 'Settings')">Settings</button>
+    </div>
+    <div id="Game" class="tabGroup">
+      <div class="character">
+        <pre id="lobstericon">
+           \     /
+           ,\   /.
+          /( \ / )\
+       \  \\ .V. //  /
+      . \  \-\"/-/  / ,
+       \ '==|)"(|==' /
+       \'===\_!_/==='/
+        ''===\_/===''
+         :===\_/===;
+          \  \_/  /
+             \_/
+           //( )\\
+          (_(_7_)_)
+          </pre>
+        <p id="globallobster">Lobsters: 0</p>
+        <pre id="crabicon">
+                 _    ___ 
+   ___ _ __ __ _| |__|__ \
+  / __| '__/ _` | '_ \ / /
+ | (__| | | (_| | |_) |_| 
+  \___|_|  \__,_|_.__/(_) 
+        </pre>
+        <p id="globalcrab" hidden="true">Counterfeit Crabs: 0</p>
+      </div>
+      <div id="lobsterTab" class="tabcontent">
+        <p id="lobstercount">Lobsters: 0</p>
+        <p id="lobstereaten">Lobsters Eaten: 0</p>
+        <p id="lobsterthrown">Lobsters Thrown: 0</p>
+        <button type="button" onclick="getThrow()">Throw 10 Lobsters on the Ground</button><br>
+        <button type="button" onclick="getEat()">Eat all your Lobsters</button><br>
+        <button id="devbutton" type="button" onclick="puddleUnlock()" hidden="true">Ask for more features</button><br>
+      </div>
+      <div id="puddleTab" class="tabcontent">
+        <pre id="seahorse">
+   \``/
+   /o `))
+  /_/\_ss))
+      |_ss))/|
+     |__ss))_|
+    |__sss))_|
+    |___ss))\|
+     |_ss))
+      )_s))
+(`(  /_s))
+ (_\/_s))
+  (\/))
+          </pre>
+        <p id="seahorse_text">
+          Welcome to my domain. I call it:<br>
+          <br>
+          T H E<br>
+          P U D D L E<br>
+          <br>
+          What do you think? Pretty slick, huh?<br>
+          Don't worry, I'm just chill like that.<br>
+        </p>
+        <p id="crabcount" hidden="true">Counterfeit Crabs: 0</p>
+        <button type="button" id="puddle_response" onclick="puddleInteraction()">Why are you in a puddle?</button><br>
+        <button type="button" id="abyss_button" onclick="abyssUnlock()" hidden="true">ENTER THE ABYSS</button><br>
+      </div>
+      <div id="abyssTab" class="tabcontent">
+
+      </div>
+      <div class="tab">
+        <button id="Lobster" class="tablinks" onclick="openTab(event, 'lobsterTab')">Lobsters</button><br>
+        <button id="Puddle" class="tablinks" onclick="openTab(event, 'puddleTab')">Puddle</button><br>
+        <button id="Abyss" class="tablinks" onclick="openTab(event, 'abyssTab')">Abyss</button><br>
+      </div>
+    </div>
+    <div id="Settings" class="tabGroup">
+      <div class="credits">
+        <p>
+          Lobster Souls: Shellborne Suffering<br>
+          <br>
+          <br>
+          Made in Python by Tasman Peterson<br>
+          Ported to JavaScript by Tasman Peterson<br>
+          <br>
+          Devtested by Adam Kreitz & Tristan Noggle<br>
+          <br>
+          Named by ChatGPT 3<br>
+          <br>
+          ASCII Art:<br>
+          Seahorse by "Unknown"<br>
+          Whale by "Unknown"<br>
+          Temple by "Glory Moon"<br>
+          Waves by "Unknown"<br>
+          Shopkeeper by "Unknown"<br>
+          Bookshelf by "Qyrz"
+        </p>
+      </div>
+      <div class="misc">
+
+      </div>
+      <div class="achievements">
+        <p>Achievements: 0/0</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
