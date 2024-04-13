@@ -1,5 +1,6 @@
 // Tasman Peterson - JavaScript Test - 1/26/24
 // Defining Variables
+let total = 0
 let production = 1
 let lobsters = 0
 let eaten = 0
@@ -54,7 +55,8 @@ document.getElementById("Lobster").click();
 // Lobster Tab
 // Functions - Lobster Tab
 function getLobster() {
-    lobsters = lobsters + production
+    lobsters += production
+    total += lobsters
     update()
 }
 
@@ -81,6 +83,8 @@ function puddleUnlock() {
     document.getElementById("devbutton").hidden = true
     document.getElementById("Puddle").hidden = false
     document.getElementById("Puddle").click();
+    document.getElementById("a2").innerHTML = `Slightly damp, but whatever<br>
+                                                (Enter the Puddle)`
 }
 
 let puddle_click = 0
@@ -149,6 +153,8 @@ function puddleInteraction() {
 function abyssUnlock() {
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
+    document.getElementById("a3").innerHTML = `He's kinda friendly...<br>
+                                                (Enter the Abyss)`
 }
 
 abyss_click = 0
@@ -229,6 +235,8 @@ function templeUnlock() {
         heavenly_lobsters -= 4
         document.getElementById("temple_button").hidden = true
         update()
+        document.getElementById("a3").innerHTML = `No harm in poking around<br>
+                                                (Enter the Temple)`
     } else {
         document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
                                                         All I require are 5 Counterfeit Crabs.<br>
@@ -260,6 +268,8 @@ function ascendUpgrade() {
         heavenly_lobsters -= 100
         document.getElementById("ascend_upgrade").disabled = true
         document.getElementById("Heaven").click()
+        document.getElementById("a4").innerHTML = `It's all uphill from here<br>
+                                                (Ascend to Heaven)`
         // god_dialogue()
     }
 }

@@ -141,6 +141,12 @@ button:hover,
     text-align: center;
 }
 
+#lobster {
+    color: #FFAA00;
+    white-space: pre-line;
+    font-size: 20pt;
+}
+
 #version {
     color: #55FF55;
 }
