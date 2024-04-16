@@ -136,7 +136,7 @@ function puddleInteraction() {
         ,
         `Fine! Gosh, so picky. Here, take THESE!<br>
         <br>
-        You gain 5 Counterfeit Crabs!<br>
+        You gain 1 Counterfeit Crab!<br>
         <br>
         Okay, okay, I know they aren't lobsters.<br>
         BUT, the SOULWEAVER WHALE can ressurect them!<br>
