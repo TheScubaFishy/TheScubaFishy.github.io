@@ -31,6 +31,30 @@ function update() {
     document.getElementById("globalheavenly").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
 }
 
+function save() {
+    localStorage.setItem("total", total)
+    localStorage.setItem("production", production)
+    localStorage.setItem("lobsters", lobsters)
+    localStorage.setItem("eaten", eaten)
+    localStorage.setItem("thrown", thrown)
+    localStorage.setItem("crabs", crabs)
+    localStorage.setItem("heavenly_lobsters", heavenly_lobsters)
+    localStorage.setItem("god_killed", god_killed)
+    localStorage.setItem("itemquantity", itemquantity)
+}
+
+function wipeSave() {
+    localStorage.setItem("total", 0)
+    localStorage.setItem("production", 1)
+    localStorage.setItem("lobsters", 0)
+    localStorage.setItem("eaten", 0)
+    localStorage.setItem("thrown", 0)
+    localStorage.setItem("crabs", 0)
+    localStorage.setItem("heavenly_lobsters", 0)
+    localStorage.setItem("god_killed", 0)
+    localStorage.setItem("itemquantity", 0)
+}
+
 // Tabs for Settings, Game, Etc.
 function openGlobal(evt, groupName) {
     // Declare all variables
