@@ -236,7 +236,7 @@ function abyssMagic2() {
 function templeUnlock() {
     if (heavenly_lobsters >= 4) {
         heavenly_lobsters -= 4
-        document.getElementById("temple_button").hidden = true
+        document.getElementById("temple_button").remove()
         update()
         document.getElementById("a3").innerHTML = `No harm in poking around<br>
                                                 (Enter the Temple)`
