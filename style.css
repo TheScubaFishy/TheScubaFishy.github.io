@@ -151,6 +151,26 @@ button:hover,
     color: #55FF55;
 }
 
+/* Heaven Tab */
+#god_title {
+    color: #AA0000;
+    font-weight: bold;
+}
+
+#god_healthbar {
+    color: #FF5500;
+    font-size: 15pt;
+
+}
+
+#health_def {
+    color: #55FF55;
+}
+
+#health {
+    color: #55FF55;
+}
+
 .tabcontent {
     grid-area: tabcontent;
     overflow: clip;

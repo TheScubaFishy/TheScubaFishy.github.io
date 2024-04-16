@@ -146,6 +146,8 @@ __v_
           Lobsters)</button><br>
       </div>
       <div id="heavenTab" class="tabcontent">
+        <p id="atmos_text"></p>
+        <pre id="god_healthbar" hidden="true">▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</pre>
         <pre id="god">
           _ . - = - . _            
        . "  \  \   /  /  " .       
@@ -161,7 +163,11 @@ __v_
      ,/         ""          \,     
        . _/             \_ .       
           " - ./. .\. - "          
-        </pre>
+        </pre><br>
+        <p id="heaven_text">THE WAVES ARE STORMY TODAY.</p>
+        <button id="heaven_button" onclick="god_dialogue()">Give me lobsters.</button><br>
+        <button id="action_button" onclick="attack()" hidden="true">Give it your best shot.</button><br>
+        <button id="heal_button" onclick="heal()" hidden="true">Heal 10 HP (1,000 Lobsters)</button><br>
       </div>
       <div class="tab">
         <button id="Lobster" class="tablinks" onclick="openTab(event, 'lobsterTab')">Lobsters</button><br>

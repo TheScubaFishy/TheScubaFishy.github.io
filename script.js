@@ -7,11 +7,13 @@ let eaten = 0
 let thrown = 0
 let crabs = 0
 let heavenly_lobsters = 0
+let god_killed = 0
+let itemquantity = 0
 
 // Functions - Main Script
 function update() {
-    document.getElementById("globallobster").innerHTML = ("Lobsters: " + lobsters);
-    document.getElementById("lobstercount").innerHTML = ("Lobsters: " + lobsters);
+    document.getElementById("globallobster").innerHTML = ("Lobsters: " + Math.round(lobsters));
+    document.getElementById("lobstercount").innerHTML = ("Lobsters: " + Math.round(lobsters));
     document.getElementById("lobstereaten").innerHTML = ("Lobsters Eaten: " + eaten);
     document.getElementById("lobsterthrown").innerHTML = ("Lobsters Thrown: " + thrown);
     document.getElementById("globalcrab").innerHTML = ("Counterfeit Crabs: " + crabs)
@@ -80,7 +82,7 @@ function getThrow() {
 // Puddle Tab
 // Functions - Puddle Tab
 function puddleUnlock() {
-    document.getElementById("devbutton").hidden = true
+    document.getElementById("devbutton").remove()
     document.getElementById("Puddle").hidden = false
     document.getElementById("Puddle").click();
     document.getElementById("a2").innerHTML = `Slightly damp, but whatever<br>
@@ -124,7 +126,7 @@ function puddleInteraction() {
         ,
         "I'm not leaving without Lobster!"
         ,
-        "Conjure 5 Counterfeit Crabs (Cost: 100 Lobsters)"
+        "Conjure 1 Counterfeit Crab (Cost: 100 Lobsters)"
     ]
     puddle_click += 1
     if (puddle_click <= 4) {
@@ -132,7 +134,7 @@ function puddleInteraction() {
         document.getElementById("puddle_response").innerHTML = (text = seahorse_response_chat[puddle_click - 1])
     }
     if (puddle_click == 4) {
-        crabs += 5
+        crabs += 1
         document.getElementById("crabcount").hidden = false
         document.getElementById("globalcrab").hidden = false
         document.getElementById("crabicon").hidden = false
@@ -142,15 +144,16 @@ function puddleInteraction() {
     if (puddle_click >= 4) {
         if (lobsters >= 100) {
             lobsters -= 100
-            crabs += 5
+            crabs += 1
             update()
         }
     }
 }
 
 // Abyss Tab
-// Abyss tab - Functions
+// Abyss Tab - Functions
 function abyssUnlock() {
+    document.getElementById("abyss_button").remove()
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
     document.getElementById("a3").innerHTML = `He's kinda friendly...<br>
@@ -270,9 +273,165 @@ function ascendUpgrade() {
         document.getElementById("Heaven").click()
         document.getElementById("a4").innerHTML = `It's all uphill from here<br>
                                                 (Ascend to Heaven)`
-        // god_dialogue()
     }
 }
+
+// Heaven Tab
+// Heaven Tab - Functions
+let heaven_click = 0
+function god_dialogue() {
+    god_chat = [
+        `SILENCE, PEST.<br>
+        YOU DON'T KNOW OF GOD'S WRATH.<br>`
+        ,
+        `NO NEED. I ALREADY KNOW<br>
+        WHAT YOU ARE THINKING.<br>`
+        ,
+        `FOOL. YOU DISAPPOINT ME.<br>
+        PREPARE FOR ULTIMATE JUDGEMENT!<br>`
+        ,
+        `YOU SEEM LOST, FOOLISH SCUM.<br>
+        MAYBE I CAN HELP WITH THAT.<br>`
+    ]
+    god_response_chat = [
+        "Attempt to speak to GOD in Sign Language"
+        ,
+        "Think about infinite lobsters..."
+        ,
+        "FIGHT ME, COWARD!"
+        ,
+        `hey, fellas. if you see this, something went to shit.<br>
+        this is just a bugfix for 'IndexError: list index out of range'<br>
+        so if you see this, contact Tasman Peterson immediately.<br>`
+    ]
+    heaven_click += 1
+    document.getElementById("heaven_text").innerHTML = god_chat[heaven_click - 1]
+    document.getElementById("heaven_button").innerHTML = god_response_chat[heaven_click - 1]
+    if (heaven_click > 3) {
+        document.getElementById("atmos_text").innerHTML = "You feel an immense pressure to run away and hide.<br>"
+        document.getElementById("heaven_button").remove()
+        document.getElementById("god_healthbar").hidden = false
+        document.getElementById("action_button").hidden = false
+        document.getElementById("heal_button").hidden = false
+    }
+}
+
+
+god_health = 3000000
+new_god_health = ""
+function attack() {
+    dodge_chance = Math.floor(Math.random() * 5) + 1;
+    if (dodge_chance == 4) {
+        god_health = god_health - lobsters
+        if (god_health <= 0) {
+            god_health = 0
+            document.getElementById("god_healthbar").innerHTML = ""
+            document.getElementById("atmos_text").innerHTML = "You slap GOD with " + Math.round(lobsters) + " lobsters.<br>"
+            document.getElementById("heaven_text").innerHTML = `YOU BASTARD.YOU DISAPPOINT ME.<br>
+                                                                <br>
+                                                                }-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-{<br>
+                                                                You gain +5 Lobsters per second!<br>
+                                                                You gain +10 Heavenly Lobsters!<br>
+                                                                You gain GOD'S SKULL<br>
+                                                                }-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-{<br>
+                                                                <br>
+                                                                You hear something click into place...<br>`
+            god_killed = 1
+            lobsters = 0
+            production += 5
+            heavenly_lobsters += 10
+            itemquantity += 1
+            document.getElementById("action_button").innerHTML = "???"
+            document.getElementById("action_button").disabled = true
+            document.getElementById("heal_button").innerHTML = "???"
+            document.getElementById("heal_button").disabled = true
+            // save_game()
+            setInterval(document.getElementById("Heaven").remove(), 30000)
+        } else {
+            document.getElementById("atmos_text").innerHTML = "You fumble a weak hit in, dealing " + Math.round(lobsters) + " damage."
+            document.getElementById("heaven_text").innerHTML = "LUCKY SHOT, ROOKIE."
+            lobsters = 0
+            god_damage()
+            document.getElementById("action_button").disabled = true
+            setInterval(god_attack(), 2500)
+        }
+    } else {
+        if (dodge_chance == 1) {
+            document.getElementById("atmos_text").innerHTML = "You missed! Your split second decision cost a quarter of your lobsters' lives.<br>"
+            document.getElementById("heaven_text").innerHTML = "YOU NEVER STOOD A CHANCE."
+            lobsters = lobsters - lobsters / 4
+        } else if (dodge_chance == 2) {
+            document.getElementById("atmos_text").innerHTML = "You missed! As your lobsters protect you, an eighth die on impact.<br>"
+            document.getElementById("heaven_text").innerHTML = "YOUR IMPUDENCE IS SHOCKING."
+            lobsters = lobsters - lobsters / 8
+        } else if (dodge_chance == 3) {
+            document.getElementById("atmos_text").innerHTML = "You missed! You feel half of your lobsters evaporate into ocean mist.<br>"
+            document.getElementById("heaven_text").innerHTML = "THERE IS NO SALVATION FOR YOU."
+            lobsters = lobsters / 2
+        }
+    }
+    document.getElementById("action_button").disabled = true
+    document.getElementById("heal_button").disabled = true
+    god_attack()
+}
+
+
+player_health = 100
+new_player_health = ""
+function god_attack() {
+    attack_type = Math.floor(Math.random() * 5) + 1;
+    attack_damage = Math.floor(Math.random() * 11) + 5;
+    if (attack_type == 4) {
+        player_health = player_health - heavenly_lobsters
+    } else {
+        player_health = player_health - attack_damage
+    }
+    if (attack_damage >= player_health) {
+        document.getElementById("atmos_text").innerHTML = "You feel your lobster souls crawling on your back.<br>"
+        document.getElementById("heaven_text").innerHTML = "BURN IN HELL.<br>"
+        production = -1
+        document.getElementById("a10").innerHTML = `How did we get here?<br>
+                                                    (Lose to GOD and get negative lobsters)`
+    } else {
+        if (attack_type == 1) {
+            document.getElementById("atmos_text").innerHTML = "GOD attacks you with TRUE STRIKE, dealing " + attack_damage + " damage.<br>"
+            document.getElementById("heaven_text").innerHTML = "I'M JUST GETTING STARTED."
+        } else if (attack_type == 2) {
+            document.getElementById("atmos_text").innerHTML = "GOD attacks you with DIVINE THUNDER, dealing " + attack_damage + " damage.<br>"
+            document.getElementById("heaven_text").innerHTML = "SHOCKING, ISN'T IT? I DEAL IN REVENGE."
+        } else if (attack_type == 3) {
+            document.getElementById("atmos_text").innerHTML = "GOD attacks you with SOUL BIND, dealing " + attack_damage + " damage.<br>"
+            document.getElementById("heaven_text").innerHTML = "THINK OF THE LOBSTERS YOU'VE KILLED."
+        } else if (attack_type == 4) {
+            document.getElementById("atmos_text").innerHTML = "GOD makes your heavenly lobsters turn on you, dealing " + heavenly_lobsters + " damage."
+            document.getElementById("heaven_text").innerHTML = "YOU FORGET, FOOL. I CONTROL HEAVEN."
+        }
+        document.getElementById("action_button").disabled = false
+        document.getElementById("heal_button").disabled = false
+    }
+}
+
+
+function god_damage() {
+    new_god_health =
+        god_health_count = round(god_health / 100000)
+    for (let number = 0; number < (god_health_count - 1); number++) {
+        new_player_health = new_player_health + "▒"
+        new_player_health = new_player_health + "░<br>"
+        document.getElementById("god_healthbar").innerHTML = new_god_health
+        new_player_health = ""
+    }
+}
+
+
+function heal() {
+    if (lobsters > 1000 && player_health < 100) {
+        player_health += 10
+        lobsters -= 1000
+        god_attack()
+    }
+}
+
 
 // Main loop of the game; important stuff like lobster gen goes here
 function mainLoop() {
