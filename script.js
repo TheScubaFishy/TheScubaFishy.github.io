@@ -1,23 +1,14 @@
 // Tasman Peterson - JavaScript Test - 1/26/24
 // Defining Variables
-localStorage.setItem("total", 0)
-localStorage.setItem("production", 1)
-localStorage.setItem("lobsters", 0)
-localStorage.setItem("eaten", 0)
-localStorage.setItem("thrown", 0)
-localStorage.setItem("crabs", 0)
-localStorage.setItem("heavenly_lobsters", 0)
-localStorage.setItem("god_killed", 0)
-localStorage.setItem("itemquantity", 0)
-let total = parseInt(localStorage.getItem("total"))
-let production = parseInt(localStorage.getItem("production"))
-let lobsters = parseInt(localStorage.getItem("lobsters"))
-let eaten = parseInt(localStorage.getItem("eaten"))
-let thrown = parseInt(localStorage.getItem("thrown"))
-let crabs = parseInt(localStorage.getItem("crabs"))
-let heavenly_lobsters = parseInt(localStorage.getItem("heavenly_lobsters"))
-let god_killed = parseInt(localStorage.getItem("god_killed"))
-let itemquantity = parseInt(localStorage.getItem("itemquantity"))
+let total = Number(localStorage.getItem("total"))
+let production = Number(localStorage.getItem("production"))
+let lobsters = Number(localStorage.getItem("lobsters"))
+let eaten = Number(localStorage.getItem("eaten"))
+let thrown = Number(localStorage.getItem("thrown"))
+let crabs = Number(localStorage.getItem("crabs"))
+let heavenly_lobsters = Number(localStorage.getItem("heavenly_lobsters"))
+let god_killed = Number(localStorage.getItem("god_killed"))
+let itemquantity = Number(localStorage.getItem("itemquantity"))
 
 // Functions - Main Script
 function update() {
@@ -471,4 +462,5 @@ function mainLoop() {
     setInterval(getLobster, 1000)
 }
 
+update()
 mainLoop()
