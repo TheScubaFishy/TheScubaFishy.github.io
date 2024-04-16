@@ -1,14 +1,23 @@
 // Tasman Peterson - JavaScript Test - 1/26/24
 // Defining Variables
-let total = 0
-let production = 1
-let lobsters = 0
-let eaten = 0
-let thrown = 0
-let crabs = 0
-let heavenly_lobsters = 0
-let god_killed = 0
-let itemquantity = 0
+localStorage.setItem("total", 0)
+localStorage.setItem("production", 1)
+localStorage.setItem("lobsters", 0)
+localStorage.setItem("eaten", 0)
+localStorage.setItem("thrown", 0)
+localStorage.setItem("crabs", 0)
+localStorage.setItem("heavenly_lobsters", 0)
+localStorage.setItem("god_killed", 0)
+localStorage.setItem("itemquantity", 0)
+let total = parseInt(localStorage.getItem("total"))
+let production = parseInt(localStorage.getItem("production"))
+let lobsters = parseInt(localStorage.getItem("lobsters"))
+let eaten = parseInt(localStorage.getItem("eaten"))
+let thrown = parseInt(localStorage.getItem("thrown"))
+let crabs = parseInt(localStorage.getItem("crabs"))
+let heavenly_lobsters = parseInt(localStorage.getItem("heavenly_lobsters"))
+let god_killed = parseInt(localStorage.getItem("god_killed"))
+let itemquantity = parseInt(localStorage.getItem("itemquantity"))
 
 // Functions - Main Script
 function update() {
