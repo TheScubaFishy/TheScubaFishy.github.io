@@ -336,6 +336,7 @@ function templeUnlock() {
     if (heavenly_lobsters >= 4) {
         heavenly_lobsters -= 4
         document.getElementById("temple_button").remove()
+        document.getElementById("Temple").hidden = false
         document.getElementById("Temple").click()
         update()
         temple_unlocked = 1
@@ -372,6 +373,7 @@ function ascendUpgrade() {
     if (heavenly_lobsters >= 100) {
         heavenly_lobsters -= 100
         document.getElementById("ascend_upgrade").disabled = true
+        document.getElementById("Heaven").hidden = false
         document.getElementById("Heaven").click()
         heaven_unlocked = 1
         a5_var = true
