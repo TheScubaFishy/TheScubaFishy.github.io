@@ -9,19 +9,53 @@ let crabs = Number(localStorage.getItem("crabs"))
 let heavenly_lobsters = Number(localStorage.getItem("heavenly_lobsters"))
 let god_killed = Number(localStorage.getItem("god_killed"))
 let itemquantity = Number(localStorage.getItem("itemquantity"))
+// Location Variables
+let puddle_unlocked = Number(localStorage.getItem("puddle_unlocked"))
+let abyss_unlocked = Number(localStorage.getItem("abyss_unlocked"))
+let temple_unlocked = Number(localStorage.getItem("temple_unlocked"))
+let heaven_unlocked = Number(localStorage.getItem("heaven_unlocked"))
+// Counter Variables
+let puddle_click = 0
+let abyss_click = 0
+let heaven_click = 0
+// Achievement Variables
+let a1_var = Boolean(localStorage.getItem("a1"))
+let a2_var = Boolean(localStorage.getItem("a2"))
+let a3_var = Boolean(localStorage.getItem("a3"))
+let a4_var = Boolean(localStorage.getItem("a4"))
+let a5_var = Boolean(localStorage.getItem("a5"))
+let a6_var = Boolean(localStorage.getItem("a6"))
+let a7_var = Boolean(localStorage.getItem("a7"))
+let a8_var = Boolean(localStorage.getItem("a8"))
+let a9_var = Boolean(localStorage.getItem("a9"))
+let a10_var = Boolean(localStorage.getItem("a10"))
+initialize()
 
-// Functions - Main Script
-function update() {
-    document.getElementById("globallobster").innerHTML = ("Lobsters: " + Math.round(lobsters));
-    document.getElementById("lobstercount").innerHTML = ("Lobsters: " + Math.round(lobsters));
-    document.getElementById("lobstereaten").innerHTML = ("Lobsters Eaten: " + eaten);
-    document.getElementById("lobsterthrown").innerHTML = ("Lobsters Thrown: " + thrown);
-    document.getElementById("globalcrab").innerHTML = ("Counterfeit Crabs: " + crabs)
-    document.getElementById("crabcount").innerHTML = ("Counterfeit Crabs: " + crabs)
-    document.getElementById("heavenlycount").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
-    document.getElementById("globalheavenly").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
+function initialize() {
+    if (puddle_unlocked == 1) {
+        document.getElementById("Puddle").hidden = false
+    }
+    if (abyss_unlocked == 1) {
+        document.getElementById("Abyss").hidden = false
+    }
+    if (temple_unlocked == 1) {
+        document.getElementById("Temple").hidden = false
+    }
+    if (heaven_unlocked == 1) {
+        document.getElementById("Heaven").hidden = false
+    }
+    if (crabs > 0) {
+        document.getElementById("crabicon").hidden = false
+        document.getElementById("globalcrab").hidden = false
+    }
+    if (heavenly_lobsters > 0) {
+        document.getElementById("heavenlyicon").hidden = false
+        document.getElementById("globalheavenly").hidden = false
+    }
+
 }
 
+// Functions - Main Script
 function save() {
     localStorage.setItem("total", total)
     localStorage.setItem("production", production)
@@ -32,9 +66,24 @@ function save() {
     localStorage.setItem("heavenly_lobsters", heavenly_lobsters)
     localStorage.setItem("god_killed", god_killed)
     localStorage.setItem("itemquantity", itemquantity)
+    localStorage.setItem("puddle_unlocked", puddle_unlocked)
+    localStorage.setItem("abyss_unlocked", abyss_unlocked)
+    localStorage.setItem("temple_unlocked", temple_unlocked)
+    localStorage.setItem("heaven_unlocked", heaven_unlocked)
+    localStorage.setItem("a1", a1_var)
+    localStorage.setItem("a2", a2_var)
+    localStorage.setItem("a3", a3_var)
+    localStorage.setItem("a4", a4_var)
+    localStorage.setItem("a5", a5_var)
+    localStorage.setItem("a6", a6_var)
+    localStorage.setItem("a7", a7_var)
+    localStorage.setItem("a8", a8_var)
+    localStorage.setItem("a9", a9_var)
+    localStorage.setItem("a10", a10_var)
 }
 
-function wipeSave() {
+function reset() {
+    localStorage.clear()
     localStorage.setItem("total", 0)
     localStorage.setItem("production", 1)
     localStorage.setItem("lobsters", 0)
@@ -44,6 +93,31 @@ function wipeSave() {
     localStorage.setItem("heavenly_lobsters", 0)
     localStorage.setItem("god_killed", 0)
     localStorage.setItem("itemquantity", 0)
+    localStorage.setItem("puddle_unlocked", 0)
+    localStorage.setItem("abyss_unlocked", 0)
+    localStorage.setItem("temple_unlocked", 0)
+    localStorage.setItem("heaven_unlocked", 0)
+    localStorage.setItem("a1", true)
+    localStorage.setItem("a2", false)
+    localStorage.setItem("a3", false)
+    localStorage.setItem("a4", false)
+    localStorage.setItem("a5", false)
+    localStorage.setItem("a6", false)
+    localStorage.setItem("a7", false)
+    localStorage.setItem("a8", false)
+    localStorage.setItem("a9", false)
+    localStorage.setItem("a10", false)
+}
+
+function update() {
+    document.getElementById("globallobster").innerHTML = ("Lobsters: " + Math.round(lobsters));
+    document.getElementById("lobstercount").innerHTML = ("Lobsters: " + Math.round(lobsters));
+    document.getElementById("lobstereaten").innerHTML = ("Lobsters Eaten: " + eaten);
+    document.getElementById("lobsterthrown").innerHTML = ("Lobsters Thrown: " + thrown);
+    document.getElementById("globalcrab").innerHTML = ("Counterfeit Crabs: " + crabs)
+    document.getElementById("crabcount").innerHTML = ("Counterfeit Crabs: " + crabs)
+    document.getElementById("heavenlycount").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
+    document.getElementById("globalheavenly").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
 }
 
 // Tabs for Settings, Game, Etc.
@@ -96,9 +170,7 @@ function getThrow() {
     if (lobsters >= 10) {
         thrown = thrown + 10
         lobsters = lobsters - 10
-        if (thrown == 10) {
-            document.getElementById("devbutton").hidden = false;
-        }
+        document.getElementById("devbutton").hidden = false;
         update()
     }
 }
@@ -109,11 +181,12 @@ function puddleUnlock() {
     document.getElementById("devbutton").remove()
     document.getElementById("Puddle").hidden = false
     document.getElementById("Puddle").click();
+    puddle_unlocked = 1
+    a2_var = true
     document.getElementById("a2").innerHTML = `Slightly damp, but whatever<br>
                                                 (Enter the Puddle)`
 }
 
-let puddle_click = 0
 function puddleInteraction() {
     const seahorse_chat = [
         `Well, you see, it wasn't always this way.<br>
@@ -180,11 +253,12 @@ function abyssUnlock() {
     document.getElementById("abyss_button").remove()
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
+    abyss_unlocked = 1
+    a3_var = true
     document.getElementById("a3").innerHTML = `He's kinda friendly...<br>
                                                 (Enter the Abyss)`
 }
 
-abyss_click = 0
 function abyssInteraction() {
     const whale_chat = [
         `Oh, hey, what's up my dude?<br>
@@ -263,7 +337,9 @@ function templeUnlock() {
         heavenly_lobsters -= 4
         document.getElementById("temple_button").remove()
         update()
-        document.getElementById("a3").innerHTML = `No harm in poking around<br>
+        temple_unlocked = 1
+        a4_var = true
+        document.getElementById("a4").innerHTML = `No harm in poking around<br>
                                                 (Enter the Temple)`
     } else {
         document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
@@ -296,14 +372,15 @@ function ascendUpgrade() {
         heavenly_lobsters -= 100
         document.getElementById("ascend_upgrade").disabled = true
         document.getElementById("Heaven").click()
-        document.getElementById("a4").innerHTML = `It's all uphill from here<br>
+        heaven_unlocked = 1
+        a5_var = true
+        document.getElementById("a5").innerHTML = `It's all uphill from here<br>
                                                 (Ascend to Heaven)`
     }
 }
 
 // Heaven Tab
 // Heaven Tab - Functions
-let heaven_click = 0
 function god_dialogue() {
     god_chat = [
         `SILENCE, PEST.<br>
@@ -342,8 +419,8 @@ function god_dialogue() {
 }
 
 
-god_health = 3000000
-new_god_health = ""
+let god_health = 3000000
+let new_god_health = ""
 function attack() {
     dodge_chance = Math.floor(Math.random() * 5) + 1;
     if (dodge_chance == 4) {
@@ -366,11 +443,14 @@ function attack() {
             production += 5
             heavenly_lobsters += 10
             itemquantity += 1
+            a6_var = true
+            document.getElementById("a6").innerHTML = `Fire and Brimstone<br>
+            (Beat GOD and unshackle production)`
             document.getElementById("action_button").innerHTML = "???"
             document.getElementById("action_button").disabled = true
             document.getElementById("heal_button").innerHTML = "???"
             document.getElementById("heal_button").disabled = true
-            // save_game()
+            save()
             setInterval(document.getElementById("Heaven").remove(), 30000)
         } else {
             document.getElementById("atmos_text").innerHTML = "You fumble a weak hit in, dealing " + Math.round(lobsters) + " damage."
@@ -401,8 +481,7 @@ function attack() {
 }
 
 
-player_health = 100
-new_player_health = ""
+let player_health = 100
 function god_attack() {
     attack_type = Math.floor(Math.random() * 5) + 1;
     attack_damage = Math.floor(Math.random() * 11) + 5;
@@ -415,6 +494,7 @@ function god_attack() {
         document.getElementById("atmos_text").innerHTML = "You feel your lobster souls crawling on your back.<br>"
         document.getElementById("heaven_text").innerHTML = "BURN IN HELL.<br>"
         production = -1
+        a10_var = true
         document.getElementById("a10").innerHTML = `How did we get here?<br>
                                                     (Lose to GOD and get negative lobsters)`
     } else {
@@ -438,13 +518,13 @@ function god_attack() {
 
 
 function god_damage() {
-    new_god_health =
-        god_health_count = round(god_health / 100000)
+    new_god_health = ""
+    god_health_count = round(god_health / 100000)
     for (let number = 0; number < (god_health_count - 1); number++) {
-        new_player_health = new_player_health + "▒"
-        new_player_health = new_player_health + "░<br>"
+        new_god_health = new_god_health + "▒"
+        new_god_health = new_god_health + "░<br>"
         document.getElementById("god_healthbar").innerHTML = new_god_health
-        new_player_health = ""
+        new_god_health = ""
     }
 }
 
@@ -461,6 +541,7 @@ function heal() {
 // Main loop of the game; important stuff like lobster gen goes here
 function mainLoop() {
     setInterval(getLobster, 1000)
+    setInterval(save, 60000)
 }
 
 update()
