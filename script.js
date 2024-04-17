@@ -322,11 +322,11 @@ function abyssMagic2() {
             production -= 1
             document.getElementById("whale_text").innerHTML = "Backfire! Lobster production -1!<br>"
         } else {
-            document.getElementById("whale_text").innerHTML = "Success! Summoned 5 minutes' worth of production!<br>"
-            lobsters += 5 * (production * 60)
+            document.getElementById("whale_text").innerHTML = "Success! Summoned 1 hour worth of production!<br>"
+            lobsters += (60 * (production * 60))
         }
     } else {
-        document.getElementById("whale_text").innerHTML = "No production to remove!<br>"
+        document.getElementById("whale_text").innerHTML = "Failed to cast the spell!<br>"
     }
 }
 
