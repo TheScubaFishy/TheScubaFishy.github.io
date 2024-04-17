@@ -351,7 +351,7 @@ function abyssMagic1() {
 }
 
 function abyssMagic2() {
-    if (production > 1) {
+    if (production > 1 && lobsters >= 1000) {
         lobsters -= 1000
         fail_chance = Math.floor(Math.random() * 4) + 1
         if (fail_chance == 4) {
