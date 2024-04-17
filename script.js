@@ -376,7 +376,7 @@ function ascendUpgrade() {
         document.getElementById("Heaven").hidden = false
         document.getElementById("Heaven").click()
         heaven_unlocked = 1
-        a5_var = true
+        a5_var = 1
         document.getElementById("a5").innerHTML = `It's all uphill from here<br>
                                                 (Ascend to Heaven)`
     }
