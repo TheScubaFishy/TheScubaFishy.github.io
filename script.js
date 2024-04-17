@@ -2,6 +2,7 @@
 // Defining Variables
 let total = Number(localStorage.getItem("total"))
 let production = Number(localStorage.getItem("production"))
+let crabproduction = Number(localStorage.getItem("crabproduction"))
 let lobsters = Number(localStorage.getItem("lobsters"))
 let eaten = Number(localStorage.getItem("eaten"))
 let thrown = Number(localStorage.getItem("thrown"))
@@ -59,7 +60,7 @@ function initialize() {
 function save() {
     localStorage.setItem("total", total)
     localStorage.setItem("production", production)
-    localStorage.setItem("lobsters", lobsters)
+    localStorage.setItem("crabproduction", crabproduction)
     localStorage.setItem("eaten", eaten)
     localStorage.setItem("thrown", thrown)
     localStorage.setItem("crabs", crabs)
@@ -86,6 +87,7 @@ function reset() {
     localStorage.clear()
     localStorage.setItem("total", 0)
     localStorage.setItem("production", 1)
+    localStorage.setItem("crabproduction", 0)
     localStorage.setItem("lobsters", 0)
     localStorage.setItem("eaten", 0)
     localStorage.setItem("thrown", 0)
@@ -157,6 +159,11 @@ document.getElementById("Lobster").click();
 function getLobster() {
     lobsters += production
     total += lobsters
+    update()
+}
+
+function getCrab() {
+    crabs += crabproduction
     update()
 }
 
@@ -359,13 +366,8 @@ function productionUpgrade() {
 }
 
 function magicUpgrade() {
-    if (heavenly_lobsters >= 10) {
-        heavenly_lobsters -= 10
-        newproduction = production * 2
-        oldproduction = production
-        production = newproduction
-        setTimeout(magicUpgrade, 300000)
-        production = oldproduction
+    if (heavenly_lobsters >= 25) {
+        crabproduction += 1
     }
 }
 
@@ -544,6 +546,7 @@ function heal() {
 // Main loop of the game; important stuff like lobster gen goes here
 function mainLoop() {
     setInterval(getLobster, 1000)
+    setInterval(getCrab, 300000)
     setInterval(save, 60000)
 }
 
