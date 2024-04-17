@@ -20,16 +20,16 @@ let puddle_click = 0
 let abyss_click = 0
 let heaven_click = 0
 // Achievement Variables
-let a1_var = Boolean(localStorage.getItem("a1"))
-let a2_var = Boolean(localStorage.getItem("a2"))
-let a3_var = Boolean(localStorage.getItem("a3"))
-let a4_var = Boolean(localStorage.getItem("a4"))
-let a5_var = Boolean(localStorage.getItem("a5"))
-let a6_var = Boolean(localStorage.getItem("a6"))
-let a7_var = Boolean(localStorage.getItem("a7"))
-let a8_var = Boolean(localStorage.getItem("a8"))
-let a9_var = Boolean(localStorage.getItem("a9"))
-let a10_var = Boolean(localStorage.getItem("a10"))
+let a1_var = Number(localStorage.getItem("a1"))
+let a2_var = Number(localStorage.getItem("a2"))
+let a3_var = Number(localStorage.getItem("a3"))
+let a4_var = Number(localStorage.getItem("a4"))
+let a5_var = Number(localStorage.getItem("a5"))
+let a6_var = Number(localStorage.getItem("a6"))
+let a7_var = Number(localStorage.getItem("a7"))
+let a8_var = Number(localStorage.getItem("a8"))
+let a9_var = Number(localStorage.getItem("a9"))
+let a10_var = Number(localStorage.getItem("a10"))
 initialize()
 
 function initialize() {
@@ -99,16 +99,16 @@ function reset() {
     localStorage.setItem("abyss_unlocked", 0)
     localStorage.setItem("temple_unlocked", 0)
     localStorage.setItem("heaven_unlocked", 0)
-    localStorage.setItem("a1", true)
-    localStorage.setItem("a2", false)
-    localStorage.setItem("a3", false)
-    localStorage.setItem("a4", false)
-    localStorage.setItem("a5", false)
-    localStorage.setItem("a6", false)
-    localStorage.setItem("a7", false)
-    localStorage.setItem("a8", false)
-    localStorage.setItem("a9", false)
-    localStorage.setItem("a10", false)
+    localStorage.setItem("a1", 1)
+    localStorage.setItem("a2", 0)
+    localStorage.setItem("a3", 0)
+    localStorage.setItem("a4", 0)
+    localStorage.setItem("a5", 0)
+    localStorage.setItem("a6", 0)
+    localStorage.setItem("a7", 0)
+    localStorage.setItem("a8", 0)
+    localStorage.setItem("a9", 0)
+    localStorage.setItem("a10", 0)
 }
 
 function update() {
@@ -189,7 +189,7 @@ function puddleUnlock() {
     document.getElementById("Puddle").hidden = false
     document.getElementById("Puddle").click();
     puddle_unlocked = 1
-    a2_var = true
+    a2_var = 1
     document.getElementById("a2").innerHTML = `Slightly damp, but whatever<br>
                                                 (Enter the Puddle)`
 }
@@ -214,10 +214,8 @@ function puddleInteraction() {
         is go into THE ABYSS and find the SOULWEAVER WHALE. Tell him<br>
         James sent you. He knows all kinds of dark magic.<br>`
         ,
-        `Fine! Gosh, so picky. Here, take THESE!<br>
-        <br>
-        You gain 1 Counterfeit Crab!<br>
-        <br>
+        `Fine! Gosh, so picky. Here, how about THESE!<br>
+        But not so fast. You have to pay me first.<br>
         Okay, okay, I know they aren't lobsters.<br>
         BUT, the SOULWEAVER WHALE can ressurect them!<br>
         And then..? I don't know, sacrifice them to the<br>
@@ -238,7 +236,6 @@ function puddleInteraction() {
         document.getElementById("puddle_response").innerHTML = (text = seahorse_response_chat[puddle_click - 1])
     }
     if (puddle_click == 4) {
-        crabs += 1
         document.getElementById("crabcount").hidden = false
         document.getElementById("globalcrab").hidden = false
         document.getElementById("crabicon").hidden = false
@@ -261,7 +258,7 @@ function abyssUnlock() {
     document.getElementById("Abyss").hidden = false
     document.getElementById("Abyss").click();
     abyss_unlocked = 1
-    a3_var = true
+    a3_var = 1
     document.getElementById("a3").innerHTML = `He's kinda friendly...<br>
                                                 (Enter the Abyss)`
 }
@@ -347,7 +344,7 @@ function templeUnlock() {
         document.getElementById("Temple").click()
         update()
         temple_unlocked = 1
-        a4_var = true
+        a4_var = 1
         document.getElementById("a4").innerHTML = `No harm in poking around<br>
                                                 (Enter the Temple)`
     } else {
@@ -367,6 +364,7 @@ function productionUpgrade() {
 
 function magicUpgrade() {
     if (heavenly_lobsters >= 25) {
+        heavenly_lobsters -= 25
         crabproduction += 1
     }
 }
@@ -448,7 +446,7 @@ function attack() {
             production += 5
             heavenly_lobsters += 10
             itemquantity += 1
-            a6_var = true
+            a6_var = 1
             document.getElementById("a6").innerHTML = `Fire and Brimstone<br>
             (Beat GOD and unshackle production)`
             document.getElementById("action_button").innerHTML = "???"
@@ -499,7 +497,7 @@ function god_attack() {
         document.getElementById("atmos_text").innerHTML = "You feel your lobster souls crawling on your back.<br>"
         document.getElementById("heaven_text").innerHTML = "BURN IN HELL.<br>"
         production = -1
-        a10_var = true
+        a10_var = 1
         document.getElementById("a10").innerHTML = `How did we get here?<br>
                                                     (Lose to GOD and get negative lobsters)`
     } else {
