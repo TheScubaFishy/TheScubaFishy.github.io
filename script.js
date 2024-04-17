@@ -53,8 +53,9 @@ function initialize() {
         document.getElementById("heavenlyicon").hidden = false
         document.getElementById("globalheavenly").hidden = false
     }
-
+    achievUpdate()
 }
+
 
 // Functions - Main Script
 function save() {
@@ -120,6 +121,39 @@ function update() {
     document.getElementById("crabcount").innerHTML = ("Counterfeit Crabs: " + crabs)
     document.getElementById("heavenlycount").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
     document.getElementById("globalheavenly").innerHTML = ("Heavenly Lobsters: " + heavenly_lobsters)
+}
+
+function achievUpdate() {
+    if (a1_var == 1) {
+        document.getElementById("a1").innerHTML = "Lobster Game<br>(Get 1 Lobster)"
+    }
+    if (a2_var == 1) {
+        document.getElementById("a2").innerHTML = "Slightly damp, but whatever<br>(Enter the Puddle)"
+    }
+    if (a3_var == 1) {
+        document.getElementById("a3").innerHTML = "He's kinda friendly...<br>(Enter the Abyss)"
+    }
+    if (a4_var == 1) {
+        document.getElementById("a4").innerHTML = "No harm in poking around<br>(Enter the Temple)"
+    }
+    if (a5_var == 1) {
+        document.getElementById("a5").innerHTML = "It's all uphill from here<br>(Ascend to Heaven)"
+    }
+    if (a6_var == 1) {
+        document.getElementById("a6").innerHTML = "Fire and Brimstone<br>(Beat GOD and unshackle production)"
+    }
+    if (a7_var == 1) {
+        document.getElementById("a7").innerHTML = "Achievement Locked<br>(??????????)"
+    }
+    if (a8_var == 1) {
+        document.getElementById("a8").innerHTML = "Achievement Locked<br>(??????????)"
+    }
+    if (a9_var == 1) {
+        document.getElementById("a9").innerHTML = "Achievement Locked<br>(??????????)"
+    }
+    if (a10_var == 1) {
+        document.getElementById("a10").innerHTML = "How did we get here?<br>(Lose to GOD and get negative lobsters)"
+    }
 }
 
 // Tabs for Settings, Game, Etc.
@@ -190,8 +224,7 @@ function puddleUnlock() {
     document.getElementById("Puddle").click();
     puddle_unlocked = 1
     a2_var = 1
-    document.getElementById("a2").innerHTML = `Slightly damp, but whatever<br>
-                                                (Enter the Puddle)`
+    achievUpdate()
 }
 
 function puddleInteraction() {
@@ -259,8 +292,7 @@ function abyssUnlock() {
     document.getElementById("Abyss").click();
     abyss_unlocked = 1
     a3_var = 1
-    document.getElementById("a3").innerHTML = `He's kinda friendly...<br>
-                                                (Enter the Abyss)`
+    achievUpdate()
 }
 
 function abyssInteraction() {
@@ -345,8 +377,7 @@ function templeUnlock() {
         update()
         temple_unlocked = 1
         a4_var = 1
-        document.getElementById("a4").innerHTML = `No harm in poking around<br>
-                                                (Enter the Temple)`
+        achievUpdate()
     } else {
         document.getElementById("whale_text").innerHTML = `You don't have enough Counterfeit Crabs!<br>
                                                         All I require are 5 Counterfeit Crabs.<br>
@@ -377,8 +408,7 @@ function ascendUpgrade() {
         document.getElementById("Heaven").click()
         heaven_unlocked = 1
         a5_var = 1
-        document.getElementById("a5").innerHTML = `It's all uphill from here<br>
-                                                (Ascend to Heaven)`
+        achievUpdate()
     }
 }
 
@@ -498,8 +528,7 @@ function god_attack() {
         document.getElementById("heaven_text").innerHTML = "BURN IN HELL.<br>"
         production = -1
         a10_var = 1
-        document.getElementById("a10").innerHTML = `How did we get here?<br>
-                                                    (Lose to GOD and get negative lobsters)`
+        achievUpdate()
     } else {
         if (attack_type == 1) {
             document.getElementById("atmos_text").innerHTML = "GOD attacks you with TRUE STRIKE, dealing " + attack_damage + " damage.<br>"
