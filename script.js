@@ -336,6 +336,7 @@ function templeUnlock() {
     if (heavenly_lobsters >= 4) {
         heavenly_lobsters -= 4
         document.getElementById("temple_button").remove()
+        document.getElementById("Temple").click()
         update()
         temple_unlocked = 1
         a4_var = true
