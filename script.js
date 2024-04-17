@@ -165,7 +165,7 @@ function puddleInteraction() {
         document.getElementById("abyss_button").hidden = false
         update()
     }
-    if (puddle_click >= 4) {
+    if (puddle_click > 4) {
         if (lobsters >= 100) {
             lobsters -= 100
             crabs += 1
@@ -235,6 +235,7 @@ function abyssMagic1() {
         document.getElementById("heavenlycount").hidden = false
         document.getElementById("heavenlyicon").hidden = false
         document.getElementById("globalheavenly").hidden = false
+        document.getElementById("abyss_magic_2").hidden = false
         update()
     }
 }
