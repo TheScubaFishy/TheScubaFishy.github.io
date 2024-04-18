@@ -109,6 +109,7 @@ button:hover,
 
 /* Game Tab */
 .character {
+    line-height: 50%;
     grid-area: character;
     overflow: clip;
     border: 5px solid #676767;
