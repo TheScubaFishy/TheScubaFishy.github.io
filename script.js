@@ -88,7 +88,7 @@ function reset() {
     localStorage.clear()
     localStorage.setItem("total", 0)
     localStorage.setItem("production", 1)
-    localStorage.setItem("crabproduction", 0)
+    localStorage.setItem("crabproduction", 300000)
     localStorage.setItem("lobsters", 0)
     localStorage.setItem("eaten", 0)
     localStorage.setItem("thrown", 0)
@@ -197,7 +197,7 @@ function getLobster() {
 }
 
 function getCrab() {
-    crabs += crabproduction
+    crabs += 1
     update()
 }
 
@@ -395,7 +395,7 @@ function productionUpgrade() {
 function magicUpgrade() {
     if (heavenly_lobsters >= 25) {
         heavenly_lobsters -= 25
-        crabproduction += 1
+        crabproduction -= 30000
     }
 }
 
@@ -572,7 +572,7 @@ function heal() {
 // Main loop of the game; important stuff like lobster gen goes here
 function mainLoop() {
     setInterval(getLobster, 1000)
-    setInterval(getCrab, 300000)
+    setInterval(getCrab, crabproduction)
     setInterval(save, 60000)
 }
 
