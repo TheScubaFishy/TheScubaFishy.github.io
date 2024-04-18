@@ -399,6 +399,7 @@ function magicUpgrade() {
         if (crabproduction > 60000) {
             heavenly_lobsters -= 25
             crabproduction -= 30000
+            document.getElementById("crabmultiplier").innerHTML = ("Multiplier: " + ((300000 / crabproduction) * 100))
             document.getElementById("crabpersecond").innerHTML = ("1 Crab/" + (crabproduction / 60) + " Minutes")
         } else {
             document.getElementById("magic_upgrade").disabled = true
