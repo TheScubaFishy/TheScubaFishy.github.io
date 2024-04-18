@@ -62,6 +62,7 @@ function save() {
     localStorage.setItem("total", total)
     localStorage.setItem("production", production)
     localStorage.setItem("crabproduction", crabproduction)
+    localStorage.setItem("lobsters", lobsters)
     localStorage.setItem("eaten", eaten)
     localStorage.setItem("thrown", thrown)
     localStorage.setItem("crabs", crabs)
