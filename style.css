@@ -83,10 +83,8 @@ button:hover,
 
 #stats {
     border: 2px solid #FFFFFF;
-}
-
-#stats p {
     font-size: 8pt;
+    line-height: 25%;
 }
 
 #stats hr {
