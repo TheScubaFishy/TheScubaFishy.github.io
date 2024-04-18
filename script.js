@@ -461,7 +461,7 @@ function attack() {
             god_health = 0
             document.getElementById("god_healthbar").innerHTML = ""
             document.getElementById("atmos_text").innerHTML = "You slap GOD with " + Math.round(lobsters) + " lobsters.<br>"
-            document.getElementById("heaven_text").innerHTML = `YOU BASTARD.YOU DISAPPOINT ME.<br>
+            document.getElementById("heaven_text").innerHTML = `YOU BASTARD. YOU DISAPPOINT ME.<br>
                                                                 <br>
                                                                 }-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-{<br>
                                                                 You gain +5 Lobsters per second!<br>
