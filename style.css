@@ -81,6 +81,18 @@ button:hover,
     grid-area: nav;
 }
 
+#stats {
+    border: 2px solid #FFFFFF;
+}
+
+#stats p {
+    font-size: 8pt;
+}
+
+#stats hr {
+    border: 1px solid #FFFFFF;
+}
+
 /* Tab Group (Bottom Section) */
 .tabGroup {
     display: grid;
@@ -139,6 +151,10 @@ button:hover,
     color: #FF5555;
     font-weight: bolder;
     text-align: center;
+}
+
+#credits {
+    font-size: 10pt;
 }
 
 #lobster {

@@ -389,13 +389,20 @@ function productionUpgrade() {
     if (heavenly_lobsters >= 5) {
         heavenly_lobsters -= 5
         production += 0.25
+        document.getElementById("multiplier").innerHTML = ("Multiplier: " + (production * 100) + "%")
+        document.getElementById("persecond").innerHTML = (production + " Lobsters/Second")
     }
 }
 
 function magicUpgrade() {
     if (heavenly_lobsters >= 25) {
-        heavenly_lobsters -= 25
-        crabproduction -= 30000
+        if (crabproduction > 60000) {
+            heavenly_lobsters -= 25
+            crabproduction -= 30000
+            document.getElementById("crabpersecond").innerHTML = ("1 Crab/" + (crabproduction / 60) + " Minutes")
+        } else {
+            document.getElementById("magic_upgrade").disabled = true
+        }
     }
 }
 
