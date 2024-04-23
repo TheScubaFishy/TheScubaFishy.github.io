@@ -401,7 +401,7 @@ function productionUpgrade() {
 
 function magicUpgrade() {
     if (heavenly_lobsters >= 25) {
-        if (crabproduction > 60000) {
+        if (crabproduction > 90000) {
             heavenly_lobsters -= 25
             crabproduction -= 30000
             document.getElementById("crabmultiplier").innerHTML = ("Crab Interval: " + ((crabproduction / 1000) / 60))
