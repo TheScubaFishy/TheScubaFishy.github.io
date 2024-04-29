@@ -93,7 +93,7 @@ function reset() {
     localStorage.clear()
     localStorage.setItem("total", 0)
     localStorage.setItem("production", 1)
-    localStorage.setItem("crabproduction", 330000)
+    localStorage.setItem("crabproduction", 360000)
     localStorage.setItem("lobsters", 0)
     localStorage.setItem("eaten", 0)
     localStorage.setItem("thrown", 0)
@@ -585,7 +585,7 @@ function heal() {
 // Main loop of the game; important stuff like lobster gen goes here
 function mainLoop() {
     setInterval(getLobster, 1000)
-    if (crabproduction < 330000) {
+    if (crabproduction < 330000 && crabproduction > 90000) {
         setInterval(getCrab, crabproduction)
     }
     setInterval(save, 60000)
