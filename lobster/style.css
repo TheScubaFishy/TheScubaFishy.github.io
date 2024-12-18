@@ -1,254 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
-    background-color: #323232;
+  background-color: #323232;
 }
 
 hr {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 h2 {
-    color: #FF5555;
-    font-size: 2.5em;
-    font-family: "Raleway";
-    text-align: center;
-    justify-content: center;
-    border: 5px solid #FF5555;
-    width: 50%;
-    position: relative;
-    left: 25%;
+  color: #ff5555;
+  font-size: 2.5em;
+  font-family: "Raleway";
+  text-align: center;
+  justify-content: center;
+  border: 5px solid #ff5555;
+  width: 50%;
+  position: relative;
+  left: 25%;
 }
 
 p {
-    color: #FFFFFF;
-    font-family: "Poppins";
+  color: #ffffff;
+  font-family: "Poppins";
 }
 
 pre {
-    color: #FFFFFF;
-    font-family: monospace, monospace;
-    font-weight: bold;
-    font-size: 9pt;
+  color: #ffffff;
+  font-family: monospace, monospace;
+  font-weight: bold;
+  font-size: 9pt;
 }
 
 button {
-    font-family: "Raleway";
-    font-size: 18px;
-    font-weight: 500;
-    padding: 8px 20px;
-    border: 5px solid #323232;
-    background: #555555;
-    border-radius: 5px;
-    color: #FFFFFF;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  font-family: "Raleway";
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 5px solid #323232;
+  background: #555555;
+  border-radius: 5px;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover,
 .btn button:hover {
-    transform: scale(0.96);
+  transform: scale(0.96);
 }
 
 /* Global Tab (Top Bar) */
 .globaltab {
-    display: grid;
-    grid-template-areas:
-        'version break nav';
-    overflow: hidden;
+  display: grid;
+  grid-template-areas: "version break nav";
+  overflow: hidden;
 }
 
 .globaltab button {
-    background-color: #555555;
-    border: 4px solid #FFFFFF;
-    cursor: pointer;
-    transition: 0.3s;
-    float: right;
+  background-color: #555555;
+  border: 4px solid #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  float: right;
 }
 
 #version {
-    grid-area: version;
-    font-family: monospace;
+  grid-area: version;
+  font-family: monospace;
 }
 
 #break {
-    grid-area: break;
+  grid-area: break;
 }
 
 #nav {
-    grid-area: nav;
+  grid-area: nav;
 }
 
 #stats {
-    border: 2px solid #FFFFFF;
-    font-size: 8pt;
-    line-height: 25%;
-    position: relative;
-    bottom: 0px;
-    width: 100%;
+  border: 2px solid #ffffff;
+  font-size: 8pt;
+  line-height: 25%;
+  position: relative;
+  bottom: 0px;
+  width: 98.5%;
 }
 
 #stats hr {
-    border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 /* Tab Group (Bottom Section) */
 .tabGroup {
-    display: grid;
-    grid-template-areas:
-        'character tabcontent tabcontent tabcontent tab'
-        'credits misc misc misc achievements';
-    overflow: hidden;
-    border-radius: 5px;
-    background: #323232;
-    padding: 14px 16px;
-    border: 5px solid #676767;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  display: grid;
+  grid-template-areas:
+    "character tabcontent tabcontent tabcontent tab"
+    "credits misc misc misc achievements";
+  overflow: hidden;
+  border-radius: 5px;
+  background: #323232;
+  padding: 14px 16px;
+  border: 5px solid #676767;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Password Tab */
+#pwd {
+  width: 50%;
+  font-family: "Raleway";
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 20px;
+  border: 5px solid #ffffff;
+  background: #555555;
+  border-radius: 5px;
+  color: #ffffff;
+  outline: none;
 }
 
 /* Game Tab */
 .character {
-    line-height: 50%;
-    grid-area: character;
-    overflow: clip;
-    border: 5px solid #676767;
-    background: #3A3A3A;
-    width: 20%;
-    height: 550px;
+  line-height: 50%;
+  grid-area: character;
+  overflow: clip;
+  border: 5px solid #676767;
+  background: #3a3a3a;
+  width: 20%;
+  height: 550px;
 }
 
 .asciiArt {
-    line-height: 100%;
+  line-height: 100%;
 }
 
 #lobstericon {
-    color: #FF5555;
+  color: #ff5555;
 }
 
 #crabicon {
-    color: #FFAA00;
+  color: #ffaa00;
 }
 
 #heavenlyicon {
-    color: #FFFF55;
+  color: #ffff55;
 }
 
 #seahorse {
-    color: #FFFF55
+  color: #ffff55;
 }
 
 #whale {
-    color: #5555FF;
+  color: #5555ff;
 }
 
 #temple {
-    color: #00AA00
+  color: #00aa00;
 }
 
 #god {
-    color: #FF5555;
+  color: #ff5555;
 }
 
 #title {
-    color: #FF5555;
-    font-weight: bolder;
-    text-align: center;
+  color: #ff5555;
+  font-weight: bolder;
+  text-align: center;
 }
 
 #credits {
-    font-size: 10pt;
+  font-size: 10pt;
 }
 
 #lobster {
-    color: #FFAA00;
-    white-space: pre-line;
-    font-size: 20pt;
+  color: #ffaa00;
+  white-space: pre-line;
+  font-size: 20pt;
 }
 
 #version {
-    color: #55FF55;
+  color: #55ff55;
 }
 
 /* Heaven Tab */
 #god_title {
-    color: #AA0000;
-    font-weight: bold;
+  color: #aa0000;
+  font-weight: bold;
 }
 
 #god_healthbar {
-    color: #FF5500;
-    font-size: 15pt;
-
+  color: #ff5500;
+  font-size: 15pt;
 }
 
 #health_def {
-    color: #55FF55;
+  color: #55ff55;
 }
 
 #health {
-    color: #55FF55;
+  color: #55ff55;
 }
 
 .tabcontent {
-    grid-area: tabcontent;
-    overflow: clip;
-    width: 60%;
-    height: 550px;
-    background-color: #323232;
+  grid-area: tabcontent;
+  overflow: clip;
+  width: 60%;
+  height: 550px;
+  background-color: #323232;
 }
 
 .tab {
-    grid-area: tab;
-    overflow-y: scroll;
-    overflow-x: clip;
-    border: 5px solid #676767;
-    background: #3A3A3A;
-    width: 20%;
-    height: 550px;
+  grid-area: tab;
+  overflow-y: scroll;
+  overflow-x: clip;
+  border: 5px solid #676767;
+  background: #3a3a3a;
+  width: 20%;
+  height: 550px;
 }
 
 .tab button {
-    width: 100%;
-    background-color: #555555;
-    border: 4px solid #FFFFFF;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 1.5em;
+  width: 100%;
+  background-color: #555555;
+  border: 4px solid #ffffff;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 1.5em;
 }
 
 .tab button:hover {
-    background-color: #404040;
+  background-color: #404040;
 }
 
 /* Settings Tab */
 .right_window {
-    grid-area: achievements;
-    overflow-y: scroll;
-    overflow-x: clip;
-    border: 5px solid #676767;
-    background: #3A3A3A;
-    width: 25%;
-    height: 550px;
+  grid-area: achievements;
+  overflow-y: scroll;
+  overflow-x: clip;
+  border: 5px solid #676767;
+  background: #3a3a3a;
+  width: 25%;
+  height: 550px;
 }
 
 .center_main {
-    grid-area: misc;
-    overflow: clip;
-    width: 50%;
-    height: 550px;
+  grid-area: misc;
+  overflow: clip;
+  width: 50%;
+  height: 550px;
 }
 
 .left_window {
-    grid-area: credits;
-    overflow-y: scroll;
-    overflow-x: clip;
-    border: 5px solid #676767;
-    background: #3A3A3A;
-    width: 25%;
-    height: 550px;
+  grid-area: credits;
+  overflow-y: scroll;
+  overflow-x: clip;
+  border: 5px solid #676767;
+  background: #3a3a3a;
+  width: 25%;
+  height: 550px;
 }
