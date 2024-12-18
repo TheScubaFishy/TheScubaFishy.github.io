@@ -83,20 +83,6 @@
             <p id="crabpersecond">0 Crabs/Minute</p>
           </div>
         </div>
-        <div id="passwordTab" class="tabcontent">
-          <pre id="passwordlabel" class="asciiArt">
-  ____                                     _   
- |  _ \ __ _ ___ _____      _____  _ __ __| |_ 
- | |_) / _` / __/ __\ \ /\ / / _ \| '__/ _` (_)
- |  __/ (_| \__ \__ \\ V  V / (_) | | | (_| |_ 
- |_|   \__,_|___/___/ \_/\_/ \___/|_|  \__,_(_)
-          </pre>
-          <input type="password" id="pwd" name="pwd" />
-          <br /><br />
-          <button type="button" onclick="confirmPass()">
-            Play Lobster Souls: Shellborne Suffering
-          </button>
-        </div>
         <div id="lobsterTab" class="tabcontent">
           <p id="lobstercount">Lobsters: 0</p>
           <p id="lobstereaten">Lobsters Eaten: 0</p>
@@ -255,7 +241,13 @@ __v_
           ><br />
         </div>
         <div class="tab">
-          <button id="Lobster" class="tablinks">Lobsters</button><br />
+          <button
+            id="Lobster"
+            class="tablinks"
+            onclick="openTab(event, 'lobsterTab')"
+          >
+            Lobsters</button
+          ><br />
           <button
             id="Puddle"
             class="tablinks"

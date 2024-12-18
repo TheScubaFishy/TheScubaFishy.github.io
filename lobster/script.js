@@ -1,9 +1,8 @@
 // Defining Variables
-let passValue = document.getElementById("pwd");
 let total = Number(localStorage.getItem("total"));
+let production = Number(localStorage.getItem("production"));
+let crabproduction = Number(localStorage.getItem("crabproduction"));
 let lobsters = Number(localStorage.getItem("lobsters"));
-let production = 0;
-let crabproduction = 0;
 let eaten = Number(localStorage.getItem("eaten"));
 let thrown = Number(localStorage.getItem("thrown"));
 let crabs = Number(localStorage.getItem("crabs"));
@@ -11,10 +10,10 @@ let heavenly_lobsters = Number(localStorage.getItem("heavenly_lobsters"));
 let god_killed = Number(localStorage.getItem("god_killed"));
 let itemquantity = Number(localStorage.getItem("itemquantity"));
 // Location Variables
-let puddle_unlocked = 0;
-let abyss_unlocked = 0;
-let temple_unlocked = 0;
-let heaven_unlocked = 0;
+let puddle_unlocked = Number(localStorage.getItem("puddle_unlocked"));
+let abyss_unlocked = Number(localStorage.getItem("abyss_unlocked"));
+let temple_unlocked = Number(localStorage.getItem("temple_unlocked"));
+let heaven_unlocked = Number(localStorage.getItem("heaven_unlocked"));
 // Counter Variables
 let puddle_click = 0;
 let abyss_click = 0;
@@ -30,6 +29,7 @@ let a7_var = Number(localStorage.getItem("a7"));
 let a8_var = Number(localStorage.getItem("a8"));
 let a9_var = Number(localStorage.getItem("a9"));
 let a10_var = Number(localStorage.getItem("a10"));
+initialize();
 
 function initialize() {
   if (puddle_unlocked == 1) {
@@ -212,32 +212,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-openTab(event, "passwordTab");
-
-// Password Tab
-// Functions - Password Tab
-function confirmPass() {
-  const now = new Date();
-  const day = now.getDay();
-  const hours = now.getHours();
-  if (!day == 0 || (day == 6 && hours in [7, 8, 9, 10, 11, 12, 13, 14])) {
-    if (passValue?.value == "Shellborne8675309") {
-      document
-        .getElementById("Lobster")
-        .setAttribute("onClick", "javascript: openTab(event, 'lobsterTab');");
-      document.getElementById("Lobster").click();
-      production = Number(localStorage.getItem("production"));
-      crabproduction = Number(localStorage.getItem("crabproduction"));
-      puddle_unlocked = Number(localStorage.getItem("puddle_unlocked"));
-      abyss_unlocked = Number(localStorage.getItem("abyss_unlocked"));
-      temple_unlocked = Number(localStorage.getItem("temple_unlocked"));
-      heaven_unlocked = Number(localStorage.getItem("heaven_unlocked"));
-      initialize();
-      update();
-      mainLoop();
-    }
-  }
-}
+document.getElementById("Lobster").click();
 
 // Lobster Tab
 // Functions - Lobster Tab
