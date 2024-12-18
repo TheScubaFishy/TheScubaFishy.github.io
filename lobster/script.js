@@ -1,4 +1,3 @@
-// Tasman Peterson - JavaScript Test - 1/26/24
 // Defining Variables
 let passValue = document.getElementById("pwd");
 let total = Number(localStorage.getItem("total"));
