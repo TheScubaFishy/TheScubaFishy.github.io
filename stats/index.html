@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV Summary Statistics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="header">
+      <h1>Life Expectancy - Summary Statistics</h1>
+      <h3>Yes, I actually made a website to show this.</h3>
+    </div>
+    <div id="big_one">
+      <div id="leftside">
+        <h1 id="sectionheader">Summary Statistic Selection</h1>
+        <div id="selection">
+          <table>
+            <tr>
+              <th>Column Indicator</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td><strong>Gender</strong></td>
+              <td><select id="genderSelect" disabled></select></td>
+            </tr>
+            <tr>
+              <td><strong>Race</strong></td>
+              <td><select id="raceSelect" disabled></select></td>
+            </tr>
+          </table>
+          <div id="graph">
+            <img
+              src="gender_expectancy.png"
+              alt="Life Expectancy Graph - Gender"
+              id="currentgraph"
+            />
+          </div>
+          <button type="button" onclick="changeGraph()">
+            View Other Graph
+          </button>
+        </div>
+      </div>
+      <div id="rightside">
+        <h1 id="right_title">Life Expectancy - Gender & Race</h1>
+        <table id="stats">
+          <tr>
+            <th>Statistic</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td><strong>Count:</strong></td>
+            <td>000</td>
+          </tr>
+          <tr>
+            <td><strong>Mean:</strong></td>
+            <td>00.00</td>
+          </tr>
+          <tr>
+            <td><strong>Median:</strong></td>
+            <td>00.00</td>
+          </tr>
+          <tr>
+            <td><strong>Mode:</strong></td>
+            <td>00.00</td>
+          </tr>
+          <tr>
+            <td><strong>Minimum:</strong></td>
+            <td>00.00</td>
+          </tr>
+          <tr>
+            <td><strong>Maximum:</strong></td>
+            <td>00.00</td>
+          </tr>
+        </table>
+        <br />
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
