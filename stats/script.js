@@ -78,6 +78,13 @@ function changeGraph() {
               id="currentgraph"
             />`;
     graph = 1;
+  } else if (graph == 1) {
+    currentGraph.innerHTML = `<img
+              src="trendline_expectancy.png"
+              alt="Life Expectancy Graph - Trendline"
+              id="currentgraph"
+            />`;
+    graph = 2;
   } else {
     currentGraph.innerHTML = `<img
               src="gender_expectancy.png"
