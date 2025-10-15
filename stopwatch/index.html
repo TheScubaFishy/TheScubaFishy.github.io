@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="ScubaFishy" />
+    <title>Helen Keller Stopwatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div id="title">
+        <h1>The Helen Keller Stopwatch</h1>
+        <h1 class="braille">⠞⠓⠑ ⠓⠑⠇⠑⠝ ⠅⠑⠇⠇⠑⠗ ⠎⠞⠕⠏⠺⠁⠞⠉⠓</h1>
+      </div>
+    </div>
+    <div class="content">
+      <div>
+        <div class="timer">
+          <div id="display">00:00:00.00</div>
+          <div id="buttons">
+            <button id="startBtn" onclick="startTimer()">Start</button>
+            <button id="resetBtn" onclick="resetTimer()">Reset</button>
+          </div>
+        </div>
+        <div id="inputs">
+          <input
+            id="time"
+            placeholder="Presentation Time"
+            onkeyup="checkTextBoxes()"
+            type="number"
+          />
+          <div class="choice">
+            <input
+              id="section"
+              placeholder="Section Amount"
+              onkeyup="checkTextBoxes()"
+              type="number"
+            />
+            <p style="margin: 5px">OR</p>
+            <input
+              id="interval"
+              placeholder="Time Interval"
+              onkeyup="checkTextBoxes()"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <h2>Automatically Calculate Time Interval</h2>
+      <div id="automatic" class="content">
+        <p>
+          Will divide the presentation into sections and notify you every
+          section.
+        </p>
+        <p class="hint">
+          HINT: If you are given a 30 minute time slot to present and you have 5
+          sections in your presentation, 5 would be your section amount. You can
+          also include the amount of group members you have for the section
+          amount to split the presentation time evenly among people.
+        </p>
+        <p class="hint">
+          Formula: [Time Interval] / [Presentation Time] = [Alert Frequency]
+        </p>
+      </div>
+      <h2>Manually Set Time Interval</h2>
+      <div id="manual" class="content">
+        <p>
+          Will notify you by a set amount of time for the length of the
+          presentation.
+        </p>
+        <p class="hint">
+          HINT: If you are presenting a 7 minute presentation where you know
+          that each group member is allowed 2.5 minutes maximum to present, you
+          can input 2.5 minutes as the time interval, and you will be notified
+          every 2.5 minutes, regardless of the total length.
+        </p>
+        <p class="hint">
+          Formula: [Time Interval] = [Alert Frequency] for [Presentation Time]
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+.braille {
+  font-family: "Cascadia Code", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.content {
+  width: 100%;
+  text-align: center;
+  justify-self: center;
+}
+.hint {
+  font-size: small;
+  color: #808080;
+}
+.timer {
+  height: 250px;
+  width: 100%;
+  border: 5px #000000;
+  border-style: solid;
+  justify-self: center;
+  align-self: center;
+}
+#display {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 300%;
+}
+#buttons {
+  height: 10%;
+}
+.choice {
+  display: flex;
+}
+body {
+  font-family: "Cascadia Code", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+  font-family: "Cascadia Code", Verdana, Helvetica, Arial, Sans-Serif;
+  text-align: center;
+  width: 100%;
+}
+input {
+  width: 100%;
+  text-align: center;
+  font-family: "Cascadia Code", sans-serif;
+  font-weight: 400;
+  font-size: large;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
